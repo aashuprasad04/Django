@@ -1,3 +1,3 @@
-```django
+```bash
 django-admin startproject Hello
 ```
