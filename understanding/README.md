@@ -1,3 +1,3 @@
-```bash
+```zsh
 django-admin startproject Hello
 ```
