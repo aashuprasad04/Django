@@ -4,7 +4,7 @@ django-admin startproject Hello
 ```zsh
 python manage.py runserver
 ```
-### project have pre url that contains some bydefault code : 
+### project have pre url file that contains some bydefault code : 
 #### Project
 ```py
 """
