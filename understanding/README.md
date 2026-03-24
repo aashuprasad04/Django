@@ -11,7 +11,7 @@ python manage.py startapp home
 ![01.bmp](https://github.com/user-attachments/files/26201802/01.bmp)
 
 ### project have pre url file that contains some bydefault code : 
-#### Project
+#### Hello/urls.py
 ```py
 """
 URL configuration for Hello project.
@@ -41,7 +41,7 @@ urlpatterns = [
 
 ### And app don't have pre urls file that's why firstly creat urls.py file in app file, <br>
 - and copy project code and paste in app urls file something like this : 
-#### App
+#### home/urls.py
 ```py
 from django.contrib import admin
 from django.urls import path
@@ -50,7 +50,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-
+#### After modiying home folder
 <img width="258" height="502" alt="02" src="https://github.com/user-attachments/assets/9bea2a34-6908-4bd9-9e01-f051b9d56ed2" />
 
 
