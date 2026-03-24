@@ -69,7 +69,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls'))
     ]
-   ```
+    ```
 - step 02:
   - modifying home/urls.py
     ```py
