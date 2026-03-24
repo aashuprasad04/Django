@@ -90,7 +90,8 @@ urlpatterns = [
     def index(request):
     return HttpResponse("this is home page")
     ```
-
+- step 04:
+  - reload web page
 
 
 
