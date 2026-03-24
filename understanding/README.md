@@ -191,6 +191,9 @@ path('login01/', views.login, name='login')
 - step03
   - modify / edit home/views.py
   ```py
+    # home/urls.py
+    # path('', views.index, name='index'),
+
     def index(request):
         # return HttpResponse("Hello World")
         return render(request, 'index.html')
