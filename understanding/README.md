@@ -8,6 +8,8 @@ python manage.py runserver
 python manage.py startapp home
 ```
 
+![01.bmp](https://github.com/user-attachments/files/26201802/01.bmp)
+
 ### project have pre url file that contains some bydefault code : 
 #### Project
 ```py
@@ -48,8 +50,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-![01.bmp](https://github.com/user-attachments/files/26201802/01.bmp)
-
 
 <img width="258" height="502" alt="02" src="https://github.com/user-attachments/assets/9bea2a34-6908-4bd9-9e01-f051b9d56ed2" />
 
