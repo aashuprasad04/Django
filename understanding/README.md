@@ -217,7 +217,7 @@ def index(request):
 ```
 
 
-
+<br><br><br><br>
 # Azy
 - ```js
     window.location.href = "/home/";
