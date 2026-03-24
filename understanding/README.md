@@ -119,3 +119,68 @@ path('login01/', views.login, name='login')
   ```
 - if URL change does not affect in template that's why use name
 
+<br><br>
+# Static and Template
+- create static and templates folder in root folder like that <br>
+<img width="224" height="581" alt="04ng" src="https://github.com/user-attachments/assets/1050d914-5674-4522-85aa-67f058a4c2d8" />
+
+### Static
+- step 01
+  - create text.txt file in staic folder
+  <img width="241" height="66" alt="05" src="https://github.com/user-attachments/assets/2314f4ed-42bd-41d8-9527-cfb9c90b2ba1" />
+
+- step 02 : Modify Hello/settings.py
+  - Hello/settings.py
+  ```py
+  import os
+
+  # Added manually
+  STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, 'static')
+    ]
+  ```
+- step 03
+  - now check in url via
+    ```
+    http://127.0.0.1:8002/static/text.txt
+    ```
+<br><br>
+### Templates
+- step01 => Hello/settings.py
+  - predefault code
+    ```py
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+            },
+        },
+    ]
+    ```
+- step02 => Hello/settings.py
+  - modify predefault code
+    ```py
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [os.path.join(BASE_DIR, 'templates')],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+            },
+        },
+    ]
+    ```
