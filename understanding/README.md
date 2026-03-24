@@ -54,6 +54,11 @@ urlpatterns = [
 <img width="258" height="502" alt="02" src="https://github.com/user-attachments/assets/9bea2a34-6908-4bd9-9e01-f051b9d56ed2" />
 
 ## Now crate first web page via Django
+- step 00:
+  - start server
+    ```py
+    python manage.py runserver
+    ```
 - step 01:
   - modifying Hello/urls.py
     ```py
