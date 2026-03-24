@@ -35,6 +35,7 @@ urlpatterns = [
 ]
 
 ```
+![01.bmp](https://github.com/user-attachments/files/26201802/01.bmp)
 
 ### And app don't have pre urls file that's why firstly creat urls.py file in app file, <br>
 - and copy project code and paste in app urls file something like this : 
@@ -47,5 +48,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-![01.bmp](https://github.com/user-attachments/files/26201802/01.bmp)
+
 
