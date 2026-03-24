@@ -67,7 +67,7 @@ urlpatterns = [
 
     urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls'))
+    path('', include('home.urls'))    # home.urls means home == appName
     ]
     ```
 - step 02:
