@@ -46,5 +46,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+```
 ![01.bmp](https://github.com/user-attachments/files/26201802/01.bmp)
 
