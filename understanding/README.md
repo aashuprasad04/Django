@@ -198,3 +198,19 @@ path('login01/', views.login, name='login')
         # return HttpResponse("Hello World")
         return render(request, 'index.html')
   ```
+<br><br>
+### passing variable via context :
+#### html page: 
+```html
+   <p> variable value is {{variable}} {{varibale2}} </p>
+```
+
+```py
+def index(request):
+    context = {
+        'variable' : 'Azy',
+        'varibale2' : 'Ronix'
+    }
+    # return HttpResponse("this is home page")
+    return render(request, 'index.html', context)
+```
