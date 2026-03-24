@@ -222,3 +222,6 @@ def index(request):
 - ```js
     window.location.href = "/home/";
   ```
+- ```html
+    <a href="/about">about</a>
+  ```
