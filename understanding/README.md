@@ -215,3 +215,10 @@ def index(request):
     # return HttpResponse("this is home page")
     return render(request, 'index.html', context)
 ```
+
+
+
+# Azy
+- ```js
+    window.location.href = "/home/";
+  ```
