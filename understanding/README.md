@@ -231,3 +231,6 @@ def index(request):
 - ```html
     <script src="{% static 'js/header.js' %}" defer></script>
   ```
+- ```html
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+  ```
