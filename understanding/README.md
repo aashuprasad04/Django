@@ -78,7 +78,8 @@ urlpatterns = [
     from home import views
 
     urlpatterns = [
-    path('', views.index, name='home')
+    path('', views.index, name='home'),
+    path('login01/', views.login, name='login')
     ]
     ```
 - step 03:
@@ -89,6 +90,9 @@ urlpatterns = [
     # Create your views here.
     def index(request):
     return HttpResponse("this is home page")
+
+    def login(request):
+    return HttpResponse('Login page')
     ```
 - step 04:
   - reload web page
