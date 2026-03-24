@@ -98,6 +98,24 @@ urlpatterns = [
   - reload web page
 
 
-
-
+## 01 UnderStanding 
+```py    
+path('login01/', views.login, name='login')
+```
+- name = 'login' is a alias (nickname) for this URL path 'login01'
+- Example without name
+  ```py
+    path('user-login/', views.login)
+  ```
+  ```html
+    <a href="/login01/">Login</a>
+  ```
+- Example with name
+  ```py
+    path('login01/', views.login, name='login')
+  ```
+  ```html
+    <a href="{% url 'login' %}">Login</a>
+  ```
+- if URL change does not affect in template that's why use name
 
