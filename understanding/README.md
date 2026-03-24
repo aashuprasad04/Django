@@ -226,5 +226,8 @@ def index(request):
     <a href="/about">about</a>
   ```
 - ```html
+    {% load static %}
+  ```
+- ```html
     <script src="{% static 'js/header.js' %}" defer></script>
   ```
