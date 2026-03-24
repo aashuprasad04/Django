@@ -204,8 +204,9 @@ path('login01/', views.login, name='login')
 ```html
    <p> variable value is {{variable}} {{varibale2}} </p>
 ```
-home/views.py <br>
+
 ```py
+# home/views.py
 def index(request):
     context = {
         'variable' : 'Azy',
