@@ -184,3 +184,14 @@ path('login01/', views.login, name='login')
         },
     ]
     ```
+- step02
+  - create index.html file in templates folder <br>
+  <img width="235" height="60" alt="06" src="https://github.com/user-attachments/assets/f1322371-82cb-4dcb-9439-3ae9ac545a2f" />
+
+- step03
+  - modify / edit home/views.py
+  ```py
+    def index(request):
+        # return HttpResponse("Hello World")
+        return render(request, 'index.html')
+  ```
