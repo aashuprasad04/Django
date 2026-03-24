@@ -53,7 +53,38 @@ urlpatterns = [
 #### After modiying home folder
 <img width="258" height="502" alt="02" src="https://github.com/user-attachments/assets/9bea2a34-6908-4bd9-9e01-f051b9d56ed2" />
 
+## Now crate first web page via Django
+- step 01:
+  - modifying Hello/urls.py
+    ```py
+    from django.contrib import admin
+    from django.urls import path, include
 
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('home.urls'))
+    ]
+   ```
+- step 02:
+  - modifying home/urls.py
+    ```py
+    from django.contrib import admin
+    from django.urls import path
+    from home import views
+
+    urlpatterns = [
+    path('', views.index, name='home')
+    ]
+    ```
+- step 03:
+  - modifying home/views.py
+    ```py
+    from django.shortcuts import render, HttpResponse
+
+    # Create your views here.
+    def index(request):
+    return HttpResponse("this is home page")
+    ```
 
 
 
