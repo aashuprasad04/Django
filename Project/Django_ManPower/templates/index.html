@@ -1,0 +1,238 @@
+  {% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+<!--  <script src="config.js"></script>-->
+  <script src="{% static 'js/config.js' %}" defer></script>
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: #DFEBF6;
+      color: #1A1A1A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2C3E50;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    input {
+      height: 36px;
+      padding: 8px 10px;
+      border: 1px solid #B8C7D6;
+      border-radius: 4px;
+      font-size: 15px;
+      background: #FAFBFC;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #0070F2;
+      box-shadow: 0 0 0 1px #0070F2;
+      background: #fff;
+    }
+
+    .btn-login {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      background: #0070F2;
+      color: #fff;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    .btn-login:hover {
+      background: #005EDC;
+    }
+
+    /* ===== LOADER DOTS ===== */
+    .loader {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+
+    .loader span {
+      animation: blink 1.4s infinite both;
+    }
+
+    .loader span:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .loader span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loader span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 0.2;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.2;
+      }
+    }
+
+    #message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #BB0000;
+    }
+
+    .help-text {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #0070F2;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .help-text:hover {
+      color: #005EDC;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+      </div>
+
+      <button type="submit" class="btn-login" id="loginBtn">
+        <span class="btn-text">Login</span>
+        <span class="loader" hidden>
+          <span>.</span><span>.</span><span>.</span>
+        </span>
+      </button>
+    </form>
+
+    <p id="message"></p>
+
+    <div class="help-text" onclick="alert('Help clicked!');">
+      Need help? Tap here.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    const loginBtn = document.getElementById("loginBtn");
+    const btnText = loginBtn.querySelector(".btn-text");
+    const loader = loginBtn.querySelector(".loader");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const scriptURL = CONFIG.SCRIPT_URL;
+
+
+      // ===== START LOADING =====
+      btnText.hidden = true;
+      loader.hidden = false;
+      loginBtn.disabled = true;
+
+      fetch(
+        scriptURL +
+        `?action=login&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+        { method: "POST" }
+      )
+        .then(res => res.json())
+        .then(data => {
+
+          // ===== STOP LOADING =====
+          btnText.hidden = false;
+          loader.hidden = true;
+          loginBtn.disabled = false;
+
+          if (data.status === "success") {
+            message.style.color = "green";
+            message.textContent = data.message;
+
+            sessionStorage.setItem("username", username);
+            sessionStorage.setItem("isLoggedIn", "true");
+            sessionStorage.setItem("token", data.token);
+
+            window.location.href = "/home/";
+          } else {
+            message.style.color = "#BB0000";
+            message.textContent = data.message;
+          }
+        })
+        .catch(err => {
+          btnText.hidden = false;
+          loader.hidden = true;
+          loginBtn.disabled = false;
+
+          message.style.color = "#BB0000";
+          message.textContent = "Error connecting to server.";
+          console.error(err);
+        });
+    });
+  </script>
+
+</body>
+
+</html>
