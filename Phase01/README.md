@@ -7,3 +7,5 @@
 - MVT Architecture
 - Server & Localhost
 ```
+
+# Django Introduction
