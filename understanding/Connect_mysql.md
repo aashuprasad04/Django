@@ -3,6 +3,17 @@
 mysql -u root -p // 1234
 ```
 
+```zsh
+Database Name - 'ManPower'
+```
+
+#### Now go to Django Project Folder
+```zsh
+step 01:
+    Ex - Project Name : 'ManPower'
+         App Name     : 'myapp'
+```
+
 
 ```zsh
 django-admin startproject Hello
