@@ -4,7 +4,7 @@ mysql -u root -p // 1234
 ```
 
 ```zsh
-Database Name - 'ManPower'
+Database Name - '01ManPower'
 ```
 
 #### Now go to Django Project Folder
