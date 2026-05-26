@@ -12,6 +12,21 @@ Database Name - 'ManPower'
 step 01:
     Ex - Project Name : 'ManPower'
          App Name     : 'myapp'
+
+step 02:
+    open [ ManPower/settings.py ]
+    reconfig :
+                DATABASES = {
+                    'default': {
+                        'ENGINE': 'django.db.backends.mysql',
+                        'NAME': '01ManPower',
+                        'USER': 'root',
+                        'PASSWORD': '1234',
+                        'HOST': 'localhost',
+                        'PORT': '3306',
+                    }
+                }
+                
 ```
 
 
