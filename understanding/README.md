@@ -1,6 +1,11 @@
 ```zsh
 django-admin startproject Hello
 ```
+
+```text
+move to Hello folder
+    then run python manage.py runserver
+```
 ```zsh
 python manage.py runserver
 ```
